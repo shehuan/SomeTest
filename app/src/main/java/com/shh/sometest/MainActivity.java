@@ -54,21 +54,16 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     private void requestStoragePermission() {
         String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
         if (EasyPermissions.hasPermissions(this, perms)) {
-            OkHttpManager.getInstance().run(new Callback() {
+            OkHttpManager.getInstance().asyncGet(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    Log.e("failure", e.toString());
+                    Log.e("response", "failure");
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     if (response.isSuccessful()) {
-
-                        if (response.cacheResponse() != null) {
-                            Log.e("use cache", response.cacheResponse().body().string());
-                        } else {
-                            Log.e("use net", response.body().string());
-                        }
+                        Log.e("response", response.body().string());
                     }
                 }
             });

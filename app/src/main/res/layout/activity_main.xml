@@ -14,7 +14,7 @@
         android:text="Hello!" />
 
     <Button
-        android:id="@+id/bt_submit"
+        android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -23,12 +23,12 @@
         android:layout_marginTop="30dp" />
 
     <Button
-        android:id="@+id/bt_net"
+        android:id="@+id/btn_cache"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/bt_submit"
-        android:text="net"
+        android:layout_below="@+id/btn_submit"
+        android:text="cache test"
         android:layout_marginTop="30dp" />
 
 </RelativeLayout>

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestActivity" />
-        <activity android:name=".NetActivity"></activity>
+        <activity android:name=".CacheActivity"></activity>
     </application>
 
 </manifest>

@@ -39,12 +39,13 @@ public class OkHttpManager {
 
     public void asyncGet(Callback callback) {
         CacheControl cacheControl = new CacheControl.Builder()
-                .maxAge(30, TimeUnit.SECONDS)
+                .maxStale(90, TimeUnit.SECONDS)
+                .maxAge(10, TimeUnit.SECONDS)
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://www.wanandroid.com/banner/json")
-//                .url("http://publicobject.com/helloworld.txt")
+//                .url("http://www.wanandroid.com/banner/json")
+                .url("http://publicobject.com/helloworld.txt")
                 .cacheControl(cacheControl)
                 .build();
 

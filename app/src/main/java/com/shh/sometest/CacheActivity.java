@@ -42,18 +42,21 @@ public class CacheActivity extends AppCompatActivity implements EasyPermissions.
             OkHttpManager.getInstance().asyncGet(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    Log.e("response", "failure");
+                    Log.e("failure", e.toString());
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     if (response.isSuccessful()) {
                         if (response.networkResponse() != null) {
-                            Log.e("network response", response.body().string().length() + "");
+                            Log.e("network", response.body().string().length() + "");
                         } else if (response.cacheResponse() != null) {
-                            Log.e("cache response", response.body().string().length() + "");
+                            if (Utils.isNetworkAvailable(context)) {
+                                Log.e("cache", response.body().string().length() + "");
+                            } else {
+                                Log.e("cache(no network)", response.body().string().length() + "");
+                            }
                         }
-
                     }
                 }
             });

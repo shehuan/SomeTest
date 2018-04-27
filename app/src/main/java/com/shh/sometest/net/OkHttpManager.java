@@ -39,7 +39,7 @@ public class OkHttpManager {
 
     public void asyncGet(Callback callback) {
         CacheControl cacheControl = new CacheControl.Builder()
-                .maxStale(90, TimeUnit.SECONDS)
+                .maxStale(10, TimeUnit.SECONDS)
                 .maxAge(10, TimeUnit.SECONDS)
                 .build();
 
